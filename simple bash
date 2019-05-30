@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir /backup2 && echo "backup2 folder has been created"
+
+filename="csutortok"
+
+for f in {1..10}
+do
+    touch /backup2/${filename}${f}.txt
+done
