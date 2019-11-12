@@ -1,0 +1,16 @@
+running processes 
+
+Get-WmiObject win32_process | select processname, @{NAME='CreationDate';EXPRESSION={$_.ConvertToDateTime($_.CreationDate)}},ProcessId,CommandLine |sort CreationDate -desc | format-table –auto -wrap
+
+
+USB info
+
+Get-ItemProperty -path hklm:\system\currentcontrolset\enum\usbstor\*\* | ForEach-Object {$P= $_.PSChildName; Get-ItemProperty hklm:\SOFTWARE\Microsoft\"Windows Portable Devices"\*\* |where {$_.PSChildName -like "*$P*"} | select PSChildName,FriendlyName } | ft -auto
+
+unsual scheduled process
+
+Get-ScheduledTask | Select-Object Taskname, Taskpath, Date, Author, Actions, Triggers, Description, State | where Author -NotLike 'Microsoft*' | where Author -ne $null | where Author -NotLike '*@%SystemRoot%\*'
+
+PIDS PPIDS
+
+get-wmiobject win32_process -computername localhost | select name, processid, parentprocessid, handle, handlecount, executablepath, creationdate | ft -autosize
