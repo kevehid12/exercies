@@ -1,3 +1,9 @@
+Enum:
+
+gobuster dir -w /usr/share/wordlists/dirb/common.txt -x .html,.php -u http://10.0.2.15 -s 200
+
+
+
 add extention
 
 cat robots | sed 's/\///' > 22
